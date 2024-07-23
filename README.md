@@ -1,13 +1,28 @@
 ## react template (chrome extension)
 
+### 拡張機能のビルド
+- 次のコマンドで拡張機能をビルドし，`./dist/`を生成する
+```
+    pnpm build
+    pnpm build:watch # HMR有り
+```
+
+### 拡張機能の設定
+**Chromiumベースのブラウザ**
+- `chrome://extensions`にアクセスしてDeveloper Modeを有効化しておく
+- **パッケージ化されていない拡張機能を取り込む** から`./dist/`を選択するとビルドした拡張機能を読み込める
+- `pnpm build:watch`すればHMRが効く
+
+
+**それ以外のブラウザ**
+- 未確認
 
 ### 備忘録
-- [CRXJS](https://crxjs.dev/vite-plugin)をインストール
-    - 拡張機能のHMRをやってくれる
-    - Chrome Extensionのmanifestを`vite.config.ts`にまとめられる
+**[CRXJS](https://crxjs.dev/vite-plugin)をインストール**
+- 拡張機能のHMRをやってくれる
+- Chrome Extensionのmanifestを`vite.config.ts`にまとめられる
 
 `vite.config.ts`
-
 ```ts
 import { crx, defineManifest } from "@crxjs/vite-plugin"
 import { defineConfig } from 'vite'
