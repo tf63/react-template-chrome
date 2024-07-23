@@ -4,14 +4,14 @@
 - 次のコマンドで拡張機能をビルドし，`./dist/`を生成する
 ```
     pnpm build
-    pnpm build:watch # HMR有り
+    pnpm build:watch # ホットリロード有り
 ```
 
 ### 拡張機能の設定
 **Chromiumベースのブラウザ**
 - `chrome://extensions`にアクセスしてDeveloper Modeを有効化しておく
 - **パッケージ化されていない拡張機能を取り込む** から`./dist/`を選択するとビルドした拡張機能を読み込める
-- `pnpm build:watch`すればHMRが効く
+- `pnpm build:watch`すればホットリロードが効く
 
 
 **それ以外のブラウザ**
@@ -19,7 +19,7 @@
 
 ### 備忘録
 **[CRXJS](https://crxjs.dev/vite-plugin)をインストール**
-- 拡張機能のHMRをやってくれる
+- 拡張機能のホットリロードをやってくれる
 - Chrome Extensionのmanifestを`vite.config.ts`にまとめられる
 
 `vite.config.ts`
