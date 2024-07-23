@@ -1,5 +1,8 @@
 ## react template (chrome extension)
 
+> [!WARNING]
+> docker環境を用意していますが，ローカルでの動作を想定しています
+
 ### 拡張機能のビルド
 - 次のコマンドで拡張機能をビルドし，`./dist/`を生成する
 ```
