@@ -1,66 +1,39 @@
-### react template
-
-```
-    # プロジェクトの作成
-    npm create vite@latest
-    # パッケージのインストール
-    npm install
-    # 新規インストール
-    npm install <package>
-    # 開発サーバーの立ち上げ
-    npm run dev
-```
+## react template (chrome extension)
 
 
-```
-    /app $ npm create vite@latest
-    Need to install the following packages:
-    create-vite@5.2.3
-    Ok to proceed? (y) y
-    ✔ Project name: … frontend
-    ✔ Select a framework: › React
-    ✔ Select a variant: › TypeScript + SWC
+### 備忘録
+- [CRXJS](https://crxjs.dev/vite-plugin)をインストール
+    - 拡張機能のHMRをやってくれる
+    - Chrome Extensionのmanifestを`vite.config.ts`にまとめられる
 
-    Scaffolding project in /app/frontend...
+`vite.config.ts`
 
-    Done. Now run:
-
-    cd frontend
-    npm install
-    npm run dev
-```
+```ts
+import { crx, defineManifest } from "@crxjs/vite-plugin"
+import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react-swc' // crxjs does not support react-swc yet
+import react from '@vitejs/plugin-react'
 
 
-`vite.config.ts`をいじる
-
-```
-    export default defineConfig({
-    plugins: [react()],
-        server: {
-            host: true,
-        },
-    });
-
-```
-
-### tailwindcssの導入
-https://tailwindcss.com/docs/guides/vite
-```
-    npm install -D tailwindcss
-    npx tailwindcss init
-```
-
-`tailwind.config.js`をいじる
-```
-    /** @type {import('tailwindcss').Config} */
-    export default {
-    content: [
-        "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    theme: {
-        extend: {},
+const manifest = defineManifest({
+    manifest_version: 3,
+    name: "My Extension",
+    version: "1.0.0",
+    permissions: ["bookmarks"],
+    action: {
+      default_popup: "index.html",
     },
-    plugins: [],
+  });
+
+export default defineConfig({
+    plugins: [react(), crx({ manifest })],
+    server: {
+        host: true
     }
+});
 ```
+
+
+### 参考
+- https://dev.classmethod.jp/articles/eetann-chrome-extension-by-crxjs/
+- https://zenn.dev/mk668a/articles/118c49bd25078a
