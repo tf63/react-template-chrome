@@ -16,7 +16,6 @@
 - **パッケージ化されていない拡張機能を取り込む** から`./dist/`を選択するとビルドした拡張機能を読み込める
 - `pnpm build:watch`すればホットリロードが効く
 
-
 **それ以外のブラウザ**
 - 未確認
 
@@ -24,6 +23,8 @@
 **[CRXJS](https://crxjs.dev/vite-plugin)をインストール**
 - 拡張機能のホットリロードをやってくれる
 - Chrome Extensionのmanifestを`vite.config.ts`にまとめられる
+- Vite 3 ~ はベータ版として提供されており，`pnpm add -D @crxjs/vite-plugin@beta`でインストールする必要がある
+- SWCには対応していないらしい
 
 `vite.config.ts`
 ```ts
