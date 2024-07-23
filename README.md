@@ -3,6 +3,12 @@
 > [!WARNING]
 > docker環境を用意していますが，ローカルでの動作を想定しています
 
+### Chrome API
+- Reactのレンダリングの外でChrome APIを操作することでブラウザのイベントを制御できる
+- 特定の操作をする際には Manifest (`vite.config.ts` に記載) に permission を設定する必要がある
+
+https://developer.chrome.com/docs/extensions/reference/api?hl=ja
+
 ### 拡張機能のビルド
 - 次のコマンドで拡張機能をビルドし，`./dist/`を生成する
 ```
